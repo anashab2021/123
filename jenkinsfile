@@ -5,6 +5,8 @@ pipeline {
             steps {
                 sshagent(['ssh']) {
 		sh 'git pull https://github.com/anashab2021/123.git'
+		sh 'docker-compose -f /home/ubuntu/123/docker-compose.yml up -d'
+
             }
         }
     }
