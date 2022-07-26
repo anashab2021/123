@@ -2,19 +2,16 @@ pipeline {
     agent any
     stages {
         stage('Install the git') {
-            steps {
-        	customWorkspace '/home/ubuntu/123'        
-		sshagent(['ssh']) {
-		sh 'git pull https://github.com/anashab2021/123.git'
-		sh 'docker-compose -f /home/ubuntu/123/docker-compose.yml up -d'
-
+            steps {     
+		sshagent(['172.31.38.14']){
+		sh 'ssh ubuntu@172.31.38.14 "cd /home/ubuntu/123 && git pull https://github.com/anashab2021/123.git"'
             }
         }
     }
         stage('Run docker compose') {
             steps {
-                sshagent(['ssh']) {
-		sh 'docker-compose -f /home/ubuntu/123/docker-compose.yml up -d'
+                sshagent(['172.31.38.14']) {
+		sh 'ssh ubuntu@172.31.38.14 docker-compose -f /home/ubuntu/123/docker-compose.yml up -d'
             }
         }
 	}
