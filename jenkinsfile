@@ -11,7 +11,7 @@ pipeline {
         stage('Run docker compose') {
             steps {
                 sshagent(['ssh']) {
-		sh 'docker-compose -f /home/ubuntu/123/docker-compose.yml up -d --build'
+		sh 'docker-compose -f up -d --build'
             }
         }
 	}
