@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('Install the git') {
             steps {
-                sh 'ssh -i /home/key.pem ubuntu@172.31.38.14 "cd /home/ubuntu/123 && git pull https://github.com/anashab2021/123.git"'
+                sh 'ssh -i ssh ubuntu@172.31.38.14 "cd /home/ubuntu/123 && git pull https://github.com/anashab2021/123.git"'
             }
         }
         stage('Run docker compose') {
             steps {
-                sh 'ssh -i /home/key.pem ubuntu@172.31.38.14 "docker-compose -f /home/ubuntu/123/docker-compose.yml up -d --build"'
+                sh 'ssh -i ssh ubuntu@172.31.38.14 "docker-compose -f /home/ubuntu/123/docker-compose.yml up -d --build"'
             }
         }
     }
