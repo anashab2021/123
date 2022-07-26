@@ -4,7 +4,7 @@ pipeline {
         stage('Install the git') {
             steps {
                 sshagent(['ssh']) {
-		sh 'cd /home/ubuntu/123 && git pull https://github.com/anashab2021/123.git'
+		sh 'git pull https://github.com/anashab2021/123.git'
             }
         }
 	}
