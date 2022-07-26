@@ -7,7 +7,7 @@ pipeline {
 		sh 'git pull https://github.com/anashab2021/123.git'
             }
         }
-	}
+    }
         stage('Run docker compose') {
             steps {
                 sshagent(['ssh']) {
