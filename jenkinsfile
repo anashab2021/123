@@ -3,8 +3,9 @@ pipeline {
     stages {
         stage('Install the git') {
             steps {
-                sshagent(['ssh']) {
-		sh 'cd /home/ubuntu/123 && git pull https://github.com/anashab2021/123.git'
+        	customWorkspace '/home/ubuntu/123'        
+		sshagent(['ssh']) {
+		sh 'git pull https://github.com/anashab2021/123.git'
 		sh 'docker-compose -f /home/ubuntu/123/docker-compose.yml up -d'
 
             }
