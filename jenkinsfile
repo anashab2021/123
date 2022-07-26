@@ -1,11 +1,10 @@
 pipeline {
 	agent any
-        sshagent(['ssh']) {
-    
-	stages {
+        stages {
         stage('Install the git') {
             steps {
-                sh 'cd /home/ubuntu/123 && git pull https://github.com/anashab2021/123.git'
+                sshagent(['ssh']) {      
+	sh 'cd /home/ubuntu/123 && git pull https://github.com/anashab2021/123.git'
             }
         }
         stage('Run docker compose') {
