@@ -9,9 +9,11 @@ pipeline {
         }
         stage('Run docker compose') {
             steps {
-                sh 'docker-compose -f /home/ubuntu/123/docker-compose.yml up -d --build'
+            sshagent(['ssh']) {
+	    sh 'docker-compose -f /home/ubuntu/123/docker-compose.yml up -d --build'
             }
         }
     }
+}
 }
 }
