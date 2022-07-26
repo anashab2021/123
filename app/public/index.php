@@ -3,7 +3,7 @@
 $servername = "mysql8-container";
 $database = "mysql";
 $username = "root";
-$password = "secret11";
+$password = "secret";
 $charset = "utf8mb4";
 
 try {
